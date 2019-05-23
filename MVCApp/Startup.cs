@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 namespace MVCApp
 {
@@ -36,15 +37,36 @@ namespace MVCApp
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env,ILogger<Startup> logger)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.Run(async (context)=>
+            /*app.Use(async (c,next)=>
             {
-                await context.Response.WriteAsync($"{System.Diagnostics.Process.GetCurrentProcess().ProcessName} - {Configuration["MyKey"]}");
+                logger.LogInformation("MW1: incoming request ");
+                //await c.Response.WriteAsync("Hello World!!");
+                await next();
+                logger.LogInformation("MW1: outgoing response ");
+            });
+            app.Use(async (c,next)=>
+            {
+                logger.LogInformation("MW2: incoming request ");
+                //await c.Response.WriteAsync("Hello World!!");
+                await next();
+                logger.LogInformation("MW2: outgoing response ");
+            });*/
+            app.UseDefaultFiles("/wwwroot/foo.html");
+            app.UseStaticFiles();
+            app.Run(async (c)=>
+            {
+                logger.LogInformation("request handled");
+                await c.Response.WriteAsync($"{System.Diagnostics.Process.GetCurrentProcess().ProcessName} - {Configuration["MyKey"]}");
+            });
+            app.Run(async (c)=>
+            {
+                await c.Response.WriteAsync("Hello World!!");
             });
             /*else
             {

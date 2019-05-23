@@ -43,6 +43,29 @@
 - for publishing to dev/test/staging/prod env we can have appSettings.Development.json/appSettings.Test.json/appSettings.Staging.json/appSettings.Production.json .
 - appSettings.json can be used for Environment variables, user secrets, Command Line arguments, configuration settings
 - Order of Env Variables: appSettingsFiles->UserSecrets->EnvironmentVariables->Command Line Args
+
+### Middleware  
+- A software that handles request or response. Eg: Authentication, Logging, Exception, Static Files (CSS, JS, images).
+- Middle ware has access to incoming requests and outgoing Response.
+- Request->Authentication -> Logging(logs request time) ->Static Files ->MVC
+- Short circuiting -> Not passing request to next Middle ware
+- Request Pipeline configured in StartUp.cs 
+- Middleware available as packages and can be downloaded from Nuget Package Manager
+- Middleware helps to keep performance and let us use memory efficiently
+- Middleware are exceuted in the order we add them
+
+```DefaultFilesOptions defaultFilesOptions = new DefaultFilesOptions();
+defaultFilesOptions.DefaultFileNames.Clear();
+defaultFilesOptions.DefaultFileNames.Add("foo.html");```
+-```UseDefaultFiles(defaultFilesOptions);```
+-```UseStaticFiles();```
+-```UseFileServer()```
+     or
+```// Use UseFileServer instead of UseDefaultFiles & UseStaticFiles
+FileServerOptions fileServerOptions = new FileServerOptions();
+fileServerOptions.DefaultFilesOptions.DefaultFileNames.Clear();
+fileServerOptions.DefaultFilesOptions.DefaultFileNames.Add("foo.html");
+app.UseFileServer(fileServerOptions);```
 ### PIPELINE:
 - Starts application as Console Application 
     -> Main()->
