@@ -60,9 +60,10 @@
 ```DefaultFilesOptions defaultFilesOptions = new DefaultFilesOptions();
    defaultFilesOptions.DefaultFileNames.Clear();
    defaultFilesOptions.DefaultFileNames.Add("foo.html");```
+
 ```UseDefaultFiles(defaultFilesOptions)```
 ```UseStaticFiles()```
-```UseFileServer()```
+
      or
 - Use _UseFileServer()_ instead of `UseDefaultFiles()` & `UseStaticFiles()`
 ```FileServerOptions fileServerOptions = new FileServerOptions();
