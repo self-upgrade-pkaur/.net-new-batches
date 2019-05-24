@@ -57,19 +57,19 @@
 - Middleware are exceuted in the order we add them
 ![Middle ware wiring ](https://github.com/self-upgrade-pkaur/.net-new-batches/blob/master/Docs/Middleware.PNG)
 
-```DefaultFilesOptions defaultFilesOptions = new DefaultFilesOptions();
-   defaultFilesOptions.DefaultFileNames.Clear();
-   defaultFilesOptions.DefaultFileNames.Add("foo.html");```
+```DefaultFilesOptions defaultFilesOptions = new DefaultFilesOptions();```
+   ```defaultFilesOptions.DefaultFileNames.Clear();```
+   ```defaultFilesOptions.DefaultFileNames.Add("foo.html");```
 
 ```UseDefaultFiles(defaultFilesOptions)```
 ```UseStaticFiles()```
 
      or
 - Use _UseFileServer()_ instead of `UseDefaultFiles()` & `UseStaticFiles()`
-```FileServerOptions fileServerOptions = new FileServerOptions();
-fileServerOptions.DefaultFilesOptions.DefaultFileNames.Clear();
-fileServerOptions.DefaultFilesOptions.DefaultFileNames.Add("foo.html");
-app.UseFileServer(fileServerOptions);```
+```FileServerOptions fileServerOptions = new FileServerOptions();```
+```fileServerOptions.DefaultFilesOptions.DefaultFileNames.Clear();```
+```fileServerOptions.DefaultFilesOptions.DefaultFileNames.Add("foo.html");```
+```app.UseFileServer(fileServerOptions);```
 
 ### PIPELINE:
 - Starts application as Console Application 
