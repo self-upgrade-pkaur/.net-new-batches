@@ -73,10 +73,14 @@
 
 ### PIPELINE:
 - Starts application as Console Application 
-    -> Main()->
+    -> Main()->CreateWebHostBuilder()->WebHost->StartUp.cs
+- **StartUp.cs**
+    - ConfigureServices -> used to add all the dependencies and services
+    - Configure -> used to add Middlewares
 
 _References_
 - [Asp.Net Core Fundamentals](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/index?view=aspnetcore-2.2&tabs=windows)
 -  [Asp.Net Core MVC App](https://docs.microsoft.com/en-us/aspnet/core/tutorials/razor-pages/razor-pages-start?view=aspnetcore-2.2)
 - [Data Access using EF Core with ASP.Net core MVC](https://docs.microsoft.com/en-us/aspnet/core/data/ef-rp/intro?view=aspnetcore-2.2)
+-[Scafolding References for Non-Window users](https://gavilan.blog/2018/04/28/asp-net-core-2-doing-scaffolding-with-dotnet-cli-aspnet-codegenerator/)
 
