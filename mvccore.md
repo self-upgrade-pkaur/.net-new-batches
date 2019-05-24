@@ -26,6 +26,7 @@
 - To run the application either :
     - Ctrl + F5
     - or type command ```dotnet run``` on Terminal
+
 ### Servers:
     - InProcess : 
         - uses IIS Express Server ???
@@ -34,11 +35,12 @@
     - OutProcess : By default .Net CLI uses Kestrel server for hosting the app irrespective of ```<AspNetCoreHostingModel>InProcess/OutProcess</AspNetCoreHostingModel>```
         - Internal : Kestrel (cross-platform process)
         - External : IIS/NginX/Apache as reverse proxy server and Kestrel used in combination with.
+![InProcess vs OutOfProcess](https://github.com/self-upgrade-pkaur/.net-new-batches/blob/master/Docs/InProcessVsOutProcess.PNG)
 
 ### launchSettings.json
 - only required for local development machine.
 - specifies the Host type based on the profile configured (IIS Express, Kestrel or Kestrel with reverse proxy )
-
+![Server Configuration in launchSettings.json](https://github.com/self-upgrade-pkaur/.net-new-batches/blob/master/Docs/launchSettings.PNG)
 ### appSettings.json
 - for publishing to dev/test/staging/prod env we can have appSettings.Development.json/appSettings.Test.json/appSettings.Staging.json/appSettings.Production.json .
 - appSettings.json can be used for Environment variables, user secrets, Command Line arguments, configuration settings
@@ -53,6 +55,7 @@
 - Middleware available as packages and can be downloaded from Nuget Package Manager
 - Middleware helps to keep performance and let us use memory efficiently
 - Middleware are exceuted in the order we add them
+![Middle ware wiring ](https://github.com/self-upgrade-pkaur/.net-new-batches/blob/master/Docs/Middleware.PNG)
 
 ```DefaultFilesOptions defaultFilesOptions = new DefaultFilesOptions();
    defaultFilesOptions.DefaultFileNames.Clear();
