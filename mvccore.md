@@ -55,17 +55,18 @@
 - Middleware are exceuted in the order we add them
 
 ```DefaultFilesOptions defaultFilesOptions = new DefaultFilesOptions();
-defaultFilesOptions.DefaultFileNames.Clear();
-defaultFilesOptions.DefaultFileNames.Add("foo.html");```
--```UseDefaultFiles(defaultFilesOptions);```
--```UseStaticFiles();```
--```UseFileServer()```
+   defaultFilesOptions.DefaultFileNames.Clear();
+   defaultFilesOptions.DefaultFileNames.Add("foo.html");```
+```UseDefaultFiles(defaultFilesOptions)```
+```UseStaticFiles()```
+```UseFileServer()```
      or
-```// Use UseFileServer instead of UseDefaultFiles & UseStaticFiles
-FileServerOptions fileServerOptions = new FileServerOptions();
+- Use _UseFileServer()_ instead of `UseDefaultFiles()` & `UseStaticFiles()`
+```FileServerOptions fileServerOptions = new FileServerOptions();
 fileServerOptions.DefaultFilesOptions.DefaultFileNames.Clear();
 fileServerOptions.DefaultFilesOptions.DefaultFileNames.Add("foo.html");
 app.UseFileServer(fileServerOptions);```
+
 ### PIPELINE:
 - Starts application as Console Application 
     -> Main()->
