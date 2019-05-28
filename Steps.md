@@ -85,6 +85,18 @@
     - type about/index and see the process name from app.Run middleware
     - Now comment the app.Run and refresh the page to see 404 error 
     - now comment AddMvc service and refresh to see error (make sure the env variable is development)
+    - Also show use of app.UseMvc()
+        ```
+        app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
+            });
+
+        ```
+    - Attribute Routing -> [Route("")]
+            [Route("Home/index/{id?}")]   null coalescing operator ??
     - Clean Up:
         uncomment required middleware
 
@@ -124,7 +136,7 @@
         - Show Strongly Typed View with model
         - 
 ## ViewModel in ASP NET Core MVC
-    - VieeModel - class where we keep multiple model classes required for a view
+    - ViewyModel - class where we keep multiple model classes required for a view
     - we also call them DTOs
 
 ## Layouts
