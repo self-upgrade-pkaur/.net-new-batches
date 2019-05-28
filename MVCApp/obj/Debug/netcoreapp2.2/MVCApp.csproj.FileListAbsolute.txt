@@ -28,3 +28,5 @@ c:\Revature\Kaur-Code\.net-new-batches\MVCApp\obj\Debug\netcoreapp2.2\MVCApp.Vie
 c:\Revature\Kaur-Code\.net-new-batches\MVCApp\obj\Debug\netcoreapp2.2\MVCApp.dll
 c:\Revature\Kaur-Code\.net-new-batches\MVCApp\obj\Debug\netcoreapp2.2\MVCApp.pdb
 C:\Revature\Kaur-Code\.net-new-batches\MVCApp\obj\Debug\netcoreapp2.2\MVCApp.csproj.CopyComplete
+C:\Revature\Kaur-Code\.net-new-batches\MVCApp\obj\Debug\netcoreapp2.2\Razor\Index.g.cshtml.cs
+C:\Revature\Kaur-Code\.net-new-batches\MVCApp\obj\Debug\netcoreapp2.2\Razor\Pages\Shared\_Layout1.g.cshtml.cs

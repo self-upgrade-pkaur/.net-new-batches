@@ -2774,6 +2774,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Pages\\Shared\\_Layout1.cshtml",
+      "TargetPath": "Pages\\Shared\\_Layout1.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Pages\\_ViewStart.cshtml",
       "TargetPath": "Pages\\_ViewStart.cshtml",
       "FileKind": "mvc"
@@ -2786,6 +2791,11 @@
     {
       "FilePath": "Pages\\Error.cshtml",
       "TargetPath": "Pages\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Index.cshtml",
+      "TargetPath": "Index.cshtml",
       "FileKind": "mvc"
     },
     {
