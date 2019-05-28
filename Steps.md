@@ -14,7 +14,6 @@
 
 -MVC :https://www.youtube.com/redirect?q=https%3A%2F%2Fcsharp-video-tutorials.blogspot.com%2F2019%2F02%2Faspnet-core-mvc-tutorial.html&event=video_description&v=f72ookCWhsQ&redir_token=ReEWOQIaRN9ctzQt4Ibq517K3-h8MTU1ODcyMzAwM0AxNTU4NjM2NjAz
 
-# Today
 ## Configure ASP NET Core request processing pipeline
  - [Reference](https://csharp-video-tutorials.blogspot.com/2019/01/aspnet-core-appsettingsjson-file.html)
  - Revise basic middle ware 
@@ -158,3 +157,18 @@
     @section Scripts {
         <script src="~/js/CustomScript.js"></script>
         }
+
+## Client Side Library:
+    - use bower, NPM, Webpack or *LibMan* to install jQuery or bootstrap like files
+    - *LibMan* is client-side Acquisition tool used to install client side libraries and framework from CDN/file systems.
+    - To use LibMan you need to have 15.8 or above version on VS
+    - Search for cdnjs -> twitter-bootstraop@version
+    - See libman.json folder under the root of the solution/project. This is the manifest file to keep track of all client-side lib.
+    - you can still remove all client side Libraries by RC on liman.json and Clean option. This still preserves the reference which can be used to restore the client -side lib
+
+## Helpers
+- Server side components to generate to create and render HTML elements
+- Types:
+    - Tag Helpers: 
+        add `@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers` to your `.cshtml` file
+    - Html Helpers
