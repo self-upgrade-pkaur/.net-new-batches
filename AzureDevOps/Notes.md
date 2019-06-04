@@ -38,8 +38,20 @@ Lesson:
 
 
 
-GIT :
+GIT : It is a distributes VCS.
+*[git workflow](https://www.atlassian.com/git/tutorials/comparing-workflows)*
+    - Designed to be guidelines for team collaboration.
+    - Workflow is created as per the teams and culture.
+    - The idea is to enhance effectiveness and hence productivity.
+    - Some things to consider when evaluating a Git workflow are:
+        - Does this workflow scale with team size?
+        - Is it easy to undo mistakes and errors with this workflow?
+        - Does this workflow impose any new unnecessary cognitive overhead to the team?
+*git demo* - individual
+- `git config --global user.name "Pushpinder Kaur"`
+- `git config --global user.email "pushpinder@revature.com"`
 - `git init` -> to initialize the git locally -> this will add a local .git folder
+- `cd projectfolder`
 - `git status` -> to see tracked or tracked files
 - `git add [file1] [file2]`  -> add the respective file to stage (means ready to commit) or     use `git add -A` for adding all the files
 - `git commit -m 'message'`
@@ -58,6 +70,28 @@ GIT :
 - `git push` to push the files commited locally to the server -> this will fail because of Pull required
 - `git pull origin master` -> to pull the readMe file this fails to because the commit history locally and on server donot match 
 -  `git pull origin master --allowed-unrelated-histories` -> allows the histories to be matched
-- shift + : + q - to exit the error codes
+- *shift + : + q* - to exit the error codes
 - `git push -u origin master` or `git push --set-upstream origin master`
  
+*git demo 1* - team
+- dev 1 - 
+    - `git checkout origin master`
+    - `git commit -m 'new commit message`
+    - `git push origin master`
+- dev 2
+    - `git checkout -b dev2feature1` 
+    - `git commit - m 'added ne w feature1'`
+    - `git push origin dev2feature1`
+- dev 1 
+    - `git pull `
+    - `git merge dev2feature1`
+
+*git demo 2* - team
+- create a git repo
+- clone in local repo
+- `git log` - to get all the logs in details
+- `git log --oneline` gives all commit messages
+- create a new branch in git bash  `git branch branchname`
+- `git branch -a` to check what are the other available branches . * points to master at this point which means git points to master.
+- `git checkout branchname` will point to the new git branch
+- make changes and do `git status`
