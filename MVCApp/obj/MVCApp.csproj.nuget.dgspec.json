@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Revature\\Kaur-Code\\.net-new-batches\\MVCApp\\MVCApp.csproj": {}
+    "C:\\Revature\\KaurContent\\.net-new-batches\\MVCApp\\MVCApp.csproj": {}
   },
   "projects": {
-    "C:\\Revature\\Kaur-Code\\.net-new-batches\\MVCApp\\MVCApp.csproj": {
+    "C:\\Revature\\KaurContent\\.net-new-batches\\MVCApp\\MVCApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Revature\\Kaur-Code\\.net-new-batches\\MVCApp\\MVCApp.csproj",
+        "projectUniqueName": "C:\\Revature\\KaurContent\\.net-new-batches\\MVCApp\\MVCApp.csproj",
         "projectName": "MVCApp",
-        "projectPath": "C:\\Revature\\Kaur-Code\\.net-new-batches\\MVCApp\\MVCApp.csproj",
-        "packagesPath": "C:\\Users\\Revature\\.nuget\\packages\\",
-        "outputPath": "C:\\Revature\\Kaur-Code\\.net-new-batches\\MVCApp\\obj\\",
+        "projectPath": "C:\\Revature\\KaurContent\\.net-new-batches\\MVCApp\\MVCApp.csproj",
+        "packagesPath": "C:\\Users\\pushp\\.nuget\\packages\\",
+        "outputPath": "C:\\Revature\\KaurContent\\.net-new-batches\\MVCApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Revature\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\pushp\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,29 +40,6 @@
       },
       "frameworks": {
         "netcoreapp2.2": {
-          "dependencies": {
-            "Microsoft.AspNetCore.App": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.2.0, )",
-              "autoReferenced": true
-            },
-            "Microsoft.AspNetCore.Razor.Design": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.2.0, )"
-            },
-            "Microsoft.NETCore.App": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.2.0, )",
-              "autoReferenced": true
-            },
-            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
-              "target": "Package",
-              "version": "[2.2.3, )"
-            }
-          },
           "imports": [
             "net461"
           ],

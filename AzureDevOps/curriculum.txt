@@ -1,0 +1,32 @@
+- Development Pipeline
+- Cloud Computing
+- DevOps Concepts
+- Version Control System (Git)
+- Project Management (GitHub Projects)
+- Continuous Integration
+- Continuous Delivery
+- Build Server Configuration (Jenkins)
+- Code Analysis Configuration (SonarCloud)
+
+
+- Development Pipeline
+    -
+- Cloud Computing
+    - on-premises, cloud, hybrid cloud, multi cloud
+    - IAAS, PAAS, SAAS, FAAS
+- DevOps Concepts
+    - "people, process, product"
+- Version Control System (Git)
+    - branches (remote, remote tracking, local tracking, local)
+    - merging (fast forward, non-fast-forward, merge resolution)
+    - feature branch workflow
+- Continuous Integration
+    - automated build pipeline (build, test, analyze, package, deploy)
+- Continuous Delivery
+    - Continuous Deployment
+- Build Server Configuration (Jenkins)
+- Code Analysis Configuration (SonarCloud)
+- Test Runner Configuration
+- Package, Artifact Configuration
+- Project Management (GitHub Projects)
+    - columns, issues
