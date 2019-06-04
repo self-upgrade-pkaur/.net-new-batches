@@ -95,3 +95,7 @@ GIT : It is a distributes VCS.
 - `git branch -a` to check what are the other available branches . * points to master at this point which means git points to master.
 - `git checkout branchname` will point to the new git branch
 - make changes and do `git status`
+- `git commit in feature-1`
+- `git branch -d feature-1`
+- `git branch -D feature-1`
+- `git checkout -b feature-a` -> this creates a new branch and also check it out
