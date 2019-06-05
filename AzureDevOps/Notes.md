@@ -10,6 +10,9 @@ Azure DevOps
 -> in github, install Azure Pipelines App for ALL REPOSITORIES
 -> // Visual Designer for release
 -> recommended is yaml for build
+-> Jobs: Containerized way of defining an environment where an application
+    - https://docs.microsoft.com/en-us/azure/devops/pipelines/process/phases?view=azure-devops&tabs=yaml
+    - You can organize your pipeline into jobs. Every pipeline has at least one job. A job is a series of steps that run sequentially as a unit. In other words, a job is the smallest unit of work that can be scheduled to run.
 root
     - variable(env variable)
     -job
