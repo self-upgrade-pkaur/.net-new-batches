@@ -22,28 +22,20 @@ pool : Default
 
 # Another way of setting a customized default pool
 
-# pool:
-#   name : Default
 steps:
   #1 - script: echo First step!
+  #2 Build
 - script: dotnet build --configuration $(buildConfiguration)
   workingDirectory: $(pathtosolution)
   displayName: 'dotnet build $(buildConfiguration)'
-# publish - works 
-
-#2 Build
 - task: DotNetCoreCLI@2
   inputs:
     command: 'Build'
     projects: '$(pathtoproject)/*.csproj'
     arguments: '--configuration $(buildConfiguration)'
-- script: dotnet   **/*Test*.csproj
-    --configuration $(buildConfiguration)
-    --logger trx
-    --no-build
-  workingDirectory: $(pathtosolution)
   displayName: Build
 
+# publish - works 
 #3 - task: DotNetCoreCLI@2
 #   inputs:
 #     command: 'publish'
