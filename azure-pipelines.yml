@@ -31,9 +31,11 @@ stages:
       vmImage: 'ubuntu-latest'
     steps:
     - script: echo Testing on Windows!
+      displayName: Test On Windows Log
   - job: TestOnLinux
     steps:
     - script: echo Testing on Linux!
+      displayName: Test On Linux Log
 - stage: Deploy
   jobs:
   - job: Deploy
@@ -41,3 +43,4 @@ stages:
       vmImage: 'ubuntu-latest'
     steps:
     - script: echo Deploying the code!
+      displayName: Deploy Log
