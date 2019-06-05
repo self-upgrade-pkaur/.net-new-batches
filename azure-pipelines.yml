@@ -22,17 +22,23 @@ steps:
     command: 'publish'
     projects: '$(pathtoproject)/*.csproj'
     arguments: '--configuration $(buildConfiguration)'
-- task: VSTest@2
-  inputs:
-    testSelector: 'testAssemblies'
-    testAssemblyVer2: '**\*Test*.dll
-      !**\*TestAdapter.dll
-      !**\obj\**'
-    searchFolder: '$(pathtoTest)'
-    codeCoverageEnabled: true
-    testRunTitle: 'Test Report'
-    platform: 'Test Build Platform'
-    configuration: 'Test Build Config'
+- script: dotnet test **/*Test*.csproj
+    --configuration $(buildConfiguration)
+    --logger trx
+    --no-build
+  workingDirectory: $(solutionDir)
+  displayName: Test
+# - task: VSTest@2
+#   inputs:
+#     testSelector: 'testAssemblies'
+#     testAssemblyVer2: '**\*Test*.dll
+#       !**\*TestAdapter.dll
+#       !**\obj\**'
+#     searchFolder: '$(pathtoTest)'
+#     codeCoverageEnabled: true
+#     testRunTitle: 'Test Report'
+#     platform: 'Test Build Platform'
+#     configuration: 'Test Build Config'
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
