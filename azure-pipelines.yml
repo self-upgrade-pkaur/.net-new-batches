@@ -20,6 +20,17 @@ steps:
     command: 'publish'
     projects: '$(pathtoproject)/*.csproj'
     arguments: '--configuration $(buildConfiguration)'
+- task: VSTest@2
+  inputs:
+    testSelector: 'testAssemblies'
+    testAssemblyVer2: '**\*test*.dll
+      !**\*TestAdapter.dll
+      !**\obj\**'
+    searchFolder: '$(System.DefaultWorkingDirectory)'
+    codeCoverageEnabled: true
+    testRunTitle: 'Test Report'
+    platform: 'Test Build Platform'
+    configuration: 'Test Build Config'
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
