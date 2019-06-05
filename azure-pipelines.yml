@@ -18,12 +18,12 @@ variables:
 
 #pointitng to default build server from Nick's VM
 
-# pool : Default
+pool : Default
 
 # Another way of setting a customized default pool
 
-pool:
-  name : Default
+# pool:
+#   name : Default
 steps:
   #1 - script: echo First step!
 - script: dotnet build --configuration $(buildConfiguration)
