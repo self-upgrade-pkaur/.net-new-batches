@@ -26,7 +26,7 @@ steps:
     --configuration $(buildConfiguration)
     --logger trx
     --no-build
-  workingDirectory: $(solutionDir)
+  workingDirectory: $(pathtosolution)
   displayName: Test
 # - task: VSTest@2
 #   inputs:
