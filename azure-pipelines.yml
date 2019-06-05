@@ -12,14 +12,14 @@ variables:
 steps:
   # - script: echo First step!
 - script: dotnet build --configuration $(buildConfiguration)
+  workingDirectory: ContactApp/
   displayName: 'dotnet build $(buildConfiguration)'
 - task: DotNetCoreCLI@2
   inputs:
-    command: 'publish'
-    publishWebProjects: true
+    command: 'build'
+    projects: 'ContactApp/Web/'
     arguments: '--configuration $(buildConfiguration)'
-
-
+    
 # stages:
 # - stage: Build
 #   jobs:
