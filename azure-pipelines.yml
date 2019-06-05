@@ -6,9 +6,6 @@
 trigger:
 - master
 
-pool:
-  vmImage: 'ubuntu-latest'
-
 variables:
   buildConfiguration: 'Release'
 
@@ -22,11 +19,16 @@ stages:
 - stage: Build
   jobs:
   - job: BuildJob
+    pool:
+      vmImage: 'ubuntu-latest'
     steps:
-    - script: echo Building!
+      - script: echo Building!
+
 - stage: Test
   jobs:
   - job: TestOnWindows
+    pool:
+      vmImage: 'ubuntu-latest'
     steps:
     - script: echo Testing on Windows!
   - job: TestOnLinux
@@ -35,5 +37,7 @@ stages:
 - stage: Deploy
   jobs:
   - job: Deploy
+    pool:
+      vmImage: 'ubuntu-latest'
     steps:
     - script: echo Deploying the code!
