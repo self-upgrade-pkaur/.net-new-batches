@@ -9,6 +9,7 @@ variables:
   buildConfiguration: 'Release'
   pathtosolution: ContactApp/
   pathtoproject: 'ContactApp/Web'
+  pathtoTest: 'ContactApp/Test'
 pool:
   vmImage: 'windows-2019'
 steps:
@@ -27,7 +28,7 @@ steps:
     testAssemblyVer2: '**\*test*.dll
       !**\*TestAdapter.dll
       !**\obj\**'
-    searchFolder: '$(System.DefaultWorkingDirectory)'
+    searchFolder: '$(pathtoTest)'
     codeCoverageEnabled: true
     testRunTitle: 'Test Report'
     platform: 'Test Build Platform'
