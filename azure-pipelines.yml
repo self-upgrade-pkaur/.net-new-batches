@@ -7,17 +7,18 @@ trigger:
 - master
 variables:
   buildConfiguration: 'Release'
-  path: ContactApp/Web/
+  pathtosolution: ContactApp/
+  pathtoproject: ContactApp/Web/
 
 steps:
   # - script: echo First step!
 - script: dotnet build --configuration $(buildConfiguration)
-  workingDirectory: $(path)
+  workingDirectory: $(pathtosolution)
   displayName: 'dotnet build $(buildConfiguration)'
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
-    projects: '$(path)'
+    projects: '$(pathtoproject)'
     arguments: '--configuration $(buildConfiguration)'
 
 # stages:
