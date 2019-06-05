@@ -9,37 +9,36 @@ variables:
   buildConfiguration: 'Release'
   pathtosolution: ContactApp/
   pathtoproject: 'ContactApp/Web'
-  job:
-    -pool:
-        vmImage:windows-2019
-    steps:
-      # - script: echo First step!
-    - script: dotnet build --configuration $(buildConfiguration)
-      workingDirectory: $(pathtosolution)
-      displayName: 'dotnet build $(buildConfiguration)'
-    - task: DotNetCoreCLI@2
-      inputs:
-        command: 'publish'
-        projects: '$(pathtoproject)/*.csproj'
-        arguments: '--configuration $(buildConfiguration)'
-    - task: VSTest@2
-      inputs:
-        testSelector: 'testAssemblies'
-        testAssemblyVer2: '**\*test*.dll
-          !**\*TestAdapter.dll
-          !**\obj\**'
-        searchFolder: '$(System.DefaultWorkingDirectory)'
-        codeCoverageEnabled: true
-        testRunTitle: 'Test Report'
-        platform: 'Test Build Platform'
-        configuration: 'Test Build Config'
-    - task: AzureRmWebAppDeployment@4
-      inputs:
-        ConnectionType: 'AzureRM'
-        azureSubscription: 'KaurrevatureCon'
-        appType: 'webApp'
-        WebAppName: 'contactapplearn'
-        packageForLinux: '$(System.DefaultWorkingDirectory)/$(pathtoproject)/**/*.zip'
+pool:
+  vmImage: 'windows-2019'
+steps:
+  # - script: echo First step!
+- script: dotnet build --configuration $(buildConfiguration)
+  workingDirectory: $(pathtosolution)
+  displayName: 'dotnet build $(buildConfiguration)'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'publish'
+    projects: '$(pathtoproject)/*.csproj'
+    arguments: '--configuration $(buildConfiguration)'
+- task: VSTest@2
+  inputs:
+    testSelector: 'testAssemblies'
+    testAssemblyVer2: '**\*test*.dll
+      !**\*TestAdapter.dll
+      !**\obj\**'
+    searchFolder: '$(System.DefaultWorkingDirectory)'
+    codeCoverageEnabled: true
+    testRunTitle: 'Test Report'
+    platform: 'Test Build Platform'
+    configuration: 'Test Build Config'
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'KaurrevatureCon'
+    appType: 'webApp'
+    WebAppName: 'contactapplearn'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/$(pathtoproject)/**/*.zip'
 
 # stages:
 # - stage: Build
