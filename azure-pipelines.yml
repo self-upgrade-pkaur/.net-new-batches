@@ -30,9 +30,8 @@ steps:
   displayName: 'dotnet build $(buildConfiguration)'
 - task: DotNetCoreCLI@2
   inputs:
-    command: 'Build'
+    command: 'build'
     projects: '$(pathtoproject)/*.csproj'
-    arguments: '--configuration $(buildConfiguration)'
   displayName: Build
 
 # publish - works 
