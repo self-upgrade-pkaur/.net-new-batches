@@ -8,7 +8,7 @@ trigger:
 variables:
   buildConfiguration: 'Release'
   pathtosolution: ContactApp/
-  pathtoproject: 'ContactApp/Web/*.csproj'
+  pathtoproject: 'ContactApp/Web'
 
 steps:
   # - script: echo First step!
@@ -18,9 +18,15 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'publish'
-    projects: '$(pathtoproject)'
+    projects: '$(pathtoproject)/*.csproj'
     arguments: '--configuration $(buildConfiguration)'
-
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'KaurrevatureCon'
+    appType: 'webApp'
+    WebAppName: 'contactapplearn'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/$(pathtoproject)/**/*.zip'
 
 # stages:
 # - stage: Build
