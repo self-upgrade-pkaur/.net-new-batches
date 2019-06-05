@@ -17,9 +17,10 @@ steps:
   displayName: 'dotnet build $(buildConfiguration)'
 - task: DotNetCoreCLI@2
   inputs:
-    command: 'build'
+    command: 'publish'
     projects: '$(pathtoproject)'
     arguments: '--configuration $(buildConfiguration)'
+
 
 # stages:
 # - stage: Build
