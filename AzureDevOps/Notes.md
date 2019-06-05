@@ -16,8 +16,8 @@ root
         -pool
             -vmImages 'ubuntu-1804' or
                         'vshosted2017'
-            -condition : if()
-            -steps
+        -condition : if()
+        -steps
                 -scripts: dotnet-test //need to install Coverlet.MsBuild nuget package -> ////test projects
                 //MSTest could give some error
                 -task
@@ -70,7 +70,7 @@ GIT : It is a distributes VCS.
 - `git push` to push the files commited locally to the server -> this will fail because of Pull required
 - `git pull origin master` -> to pull the readMe file this fails to because the commit history locally and on server donot match 
 -  `git pull origin master --allowed-unrelated-histories` -> allows the histories to be matched
-- *shift + : + q* - to exit the error codes
+- *shift + : + wq* - to exit the error codes and make commits
 - `git push -u origin master` or `git push --set-upstream origin master`
  
 *git demo 1* - team
@@ -80,7 +80,7 @@ GIT : It is a distributes VCS.
     - `git push origin master`
 - dev 2
     - `git checkout -b dev2feature1` 
-    - `git commit - m 'added ne w feature1'`
+    - `git commit - m 'added new feature1'`
     - `git push origin dev2feature1`
 - dev 1 
     - `git pull `
@@ -99,3 +99,7 @@ GIT : It is a distributes VCS.
 - `git branch -d feature-1`
 - `git branch -D feature-1`
 - `git checkout -b feature-a` -> this creates a new branch and also check it out
+- write changes
+- do git add, commit , push
+- `git checkout master`
+- `git merge feature-1`

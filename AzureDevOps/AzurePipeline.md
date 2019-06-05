@@ -1,0 +1,3 @@
+- create a new project on Azure devops pipeline
+- Tell where your code is : Github
+- Select Repo 

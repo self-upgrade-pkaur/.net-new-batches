@@ -9,10 +9,12 @@
     - Maintainence
 *Models*
     - Waterfall Model : linear-sequential life cycle model
+    - Big-Bang
     - Iterative Model
-    - Spiral Model
-    - V-Model
-    - Big Bang Model
-    - RAD Model
-    - Agile Model
-
+        - Spiral Model
+        - Agile Model
+            - Scrum : Scrum master, Stakeholder, Dev-team
+                - sprint review : look at the process (user story assignation, estimation)
+                - sprint retrospection : to check the product match the requirement
+            - Kanban : watching tape recordings to strategise the game
+            - CMMI : NCWW (football associations)

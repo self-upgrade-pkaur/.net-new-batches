@@ -1,30 +1,60 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
-namespace Data.Entities
+namespace Domain
 {
     public class Contact
     {
+        /// <summary>
+        /// ID with default as zero means no value returned
+        /// </summary>
         public int Id { get; set; }
-        private string _firstName;
-        public string FirstName { get => _firstName; set {
-                if (_firstName.Length==0)
+        public DateTime? Created { get; set; }
+        private string firstName;
+        public string MiddleName { get; set; }
+        private string lastName;
+        private string mobile;
+        public string WorkPhone { get; set; }
+        public string HomePhone { get; set; }
+        public String Email { get; set; }
+        public DateTime? Modified { get; set; }
+        public string FirstName
+        {
+            get => firstName; set
+            {
+                if (String.IsNullOrEmpty(value))
                 {
-                    throw new ArgumentException("First name cannot be empty ", nameof(value));
+                    throw new ArgumentException("first name cannot be empty ");
                 }
-                _firstName = value;
+                firstName = value;
             }
         }
-        public string MiddleName { get; set; }
-        public string LastName { get; set; }
-        public string Email { get; set; }
-        public string Mobile { get; set; }
-        public string Work { get; set; }
-        public string Home { get; set; }
-        public DateTime? Created { get; set; }
-        public DateTime? Modified { get; set; }
 
-        public virtual List<Address> Address { get; set; } = new List<Address>();
-        public virtual ICollection<MoreInfo> MoreInfo { get; set; }
+        public string LastName
+        {
+            get => lastName; set
+            {
+                if (String.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException("last name cannot be empty ");
+                }
+                lastName = value;
+            }
+        }
+
+        public string Mobile { get=>mobile; set {
+                if (String.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException("Phone cannot be Empty");
+                }
+                mobile = value;
+            }
+        }
+
+        public string GetName(string fName, string mName, string lName)
+        {
+            return $"{fName} {mName} {lName}";
+        }
     }
 }
