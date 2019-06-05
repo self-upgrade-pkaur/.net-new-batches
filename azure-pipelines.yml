@@ -10,42 +10,63 @@ variables:
   pathtosolution: ContactApp/
   pathtoproject: 'ContactApp/Web'
   pathtoTest: 'ContactApp/Test'
+
+# using Microsoft Hosted agents
+
+# pool:
+#   vmImage: 'windows-2019'
+
+#pointitng to default build server from Nick's VM
+
+# pool : Default
+
+# Another way of setting a customized default pool
+
 pool:
-  vmImage: 'windows-2019'
+  name : Default
 steps:
-  # - script: echo First step!
+  #1 - script: echo First step!
 - script: dotnet build --configuration $(buildConfiguration)
   workingDirectory: $(pathtosolution)
   displayName: 'dotnet build $(buildConfiguration)'
+# publish - works 
+
+#2 Build
 - task: DotNetCoreCLI@2
   inputs:
-    command: 'publish'
+    command: 'Build'
     projects: '$(pathtoproject)/*.csproj'
     arguments: '--configuration $(buildConfiguration)'
-- script: dotnet test **/*Test*.csproj
+- script: dotnet   **/*Test*.csproj
     --configuration $(buildConfiguration)
     --logger trx
     --no-build
   workingDirectory: $(pathtosolution)
-  displayName: Test
-# - task: VSTest@2
+  displayName: Build
+
+#3 - task: DotNetCoreCLI@2
 #   inputs:
-#     testSelector: 'testAssemblies'
-#     testAssemblyVer2: '**\*Test*.dll
-#       !**\*TestAdapter.dll
-#       !**\obj\**'
-#     searchFolder: '$(pathtoTest)'
-#     codeCoverageEnabled: true
-#     testRunTitle: 'Test Report'
-#     platform: 'Test Build Platform'
-#     configuration: 'Test Build Config'
-- task: AzureRmWebAppDeployment@4
-  inputs:
-    ConnectionType: 'AzureRM'
-    azureSubscription: 'KaurrevatureCon'
-    appType: 'webApp'
-    WebAppName: 'contactapplearn'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/$(pathtoproject)/**/*.zip'
+#     command: 'publish'
+#     projects: '$(pathtoproject)/*.csproj'
+#     arguments: '--configuration $(buildConfiguration)'
+# - script: dotnet   **/*Test*.csproj
+#     --configuration $(buildConfiguration)
+#     --logger trx
+#     --no-build
+#   workingDirectory: $(pathtosolution)
+#   displayName: Publish
+
+
+# this is used for deployment to dev server - the only server
+# - task: AzureRmWebAppDeployment@4
+#   inputs:
+#     ConnectionType: 'AzureRM'
+#     azureSubscription: 'KaurrevatureCon'
+#     appType: 'webApp'
+#     WebAppName: 'contactapplearn'
+#     packageForLinux: '$(System.DefaultWorkingDirectory)/$(pathtoproject)/**/*.zip'
+
+# demo for various stages
 
 # stages:
 # - stage: Build
