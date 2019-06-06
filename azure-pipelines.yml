@@ -65,7 +65,10 @@ steps:
     testResultsFormat: 'VSTest'
     testResultsFiles: '*.trx'
     searchFolder: '$(Build.ArtifactStagingDirectory)/test'
-  displayName: 'dotnet publish results'
+  displayName: 'dotnet test publish results'
+
+# Publish artifact
+
 # To see the test coverage in the Tests of every build
 # - task: PublishTestResults@2
 #   inputs:
@@ -75,11 +78,13 @@ steps:
 #   displayName: 'Publish test results '
 
 # publish - works 
-#3 - task: DotNetCoreCLI@2
-#   inputs:
-#     command: 'publish'
-#     projects: '$(pathtoproject)/*.csproj'
-#     arguments: '--configuration $(buildConfiguration)'
+#3
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'publish'
+    projects: '$(pathtoproject)/*.csproj'
+    arguments: '--configuration $(buildConfiguration)'
+  displayName: :'dotnet publish'
 # - script: dotnet   **/*Test*.csproj
 #     --configuration $(buildConfiguration)
 #     --logger trx
