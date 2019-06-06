@@ -42,7 +42,7 @@ steps:
     /p:CoverletOutputFormat=opencover
     /p:CoverletOutput='$(Build.ArtifactStagingDirectory)/coverage/'
   workingDirectory: $(pathtosolution)
-  displayName: dotnet test
+  displayName: 'dotnet test'
 
 # To see the test coverage in the Tests of every build
 - task: PublishTestResults@2
