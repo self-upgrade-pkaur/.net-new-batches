@@ -28,13 +28,29 @@ steps:
 - script: dotnet build --configuration $(buildConfiguration)
   workingDirectory: $(pathtosolution)
   displayName: 'dotnet build $(buildConfiguration)'
+# - script: dotnet test
+#     --configuration $(buildConfiguration)
+#     --logger trx
+#     --no-build
+#   workingDirectory: $(pathtosolution)
 - script: dotnet test
     --configuration $(buildConfiguration)
     --logger trx
     --no-build
+    --results-directory-$(Build.ArtifactStagingDirectory)/test/
+    /p:CollectCoverage=true
+    /p:CoverletOutputFormat=opencover
+    /p:CoverletOutput='$(Build.ArtifactStagingDirectory)/coverage/'
   workingDirectory: $(pathtosolution)
+  displayName: dotnet test
 
-# --results-directory-$(Build.Artifact)
+# To see the test coverage in the Tests of every build
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'VStest'
+    testResultsFiles: '*.trx'
+    searchFolder: :'$(Build.ArtifactStagingDirectory)/test'
+  displayName: 'Publish test results '
 
 # publish - works 
 #3 - task: DotNetCoreCLI@2
