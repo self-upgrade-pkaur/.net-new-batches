@@ -31,8 +31,14 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
-    projects: '$(pathtoproject)/*.csproj'
+    projects: '$(pathtoproject)/*.csproj'  
   displayName: Build
+
+- script : dotnet test
+    --configuration-$(buildConfiguration)
+    --logger trx
+    --no-build
+    # --results-directory-$(Build.Artifact)
 
 # publish - works 
 #3 - task: DotNetCoreCLI@2
