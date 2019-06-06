@@ -27,17 +27,12 @@ steps:
   #2 Build
 - script: dotnet build --configuration $(buildConfiguration)
   workingDirectory: $(pathtosolution)
-  displayName: 'dotnet build $(buildConfiguration)'
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'build'
-    projects: '$(pathtoproject)/*.csproj'  
-  displayName: Build
-
+  displayName: 'dotnet build $(buildConfiguration)
 - script : dotnet test
     --configuration $(buildConfiguration)
     --logger trx
     --no-build
+  workingDirectory: $(pathtosolution)
     # --results-directory-$(Build.Artifact)
 
 # publish - works 
