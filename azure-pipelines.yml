@@ -83,8 +83,8 @@ steps:
   inputs:
     command: 'publish'
     projects: '$(pathtoproject)/*.csproj'
-    arguments: '--configuration $(buildConfiguration)'
-  displayName: 'dotnet publish'
+    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+  displayName: 'dotnet publish artifact'
   
 - task: PublishBuildArtifacts@1
   inputs:
