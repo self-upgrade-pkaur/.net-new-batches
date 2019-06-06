@@ -84,6 +84,7 @@ steps:
     command: 'publish'
     projects: '$(pathtoproject)/*.csproj'
     arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+    publishWebProjects: false
   displayName: 'dotnet publish artifact'
   
 - task: PublishBuildArtifacts@1
