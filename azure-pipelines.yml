@@ -47,7 +47,7 @@ steps:
 # To see the test coverage in the Tests of every build
 - task: PublishTestResults@2
   inputs:
-    testResultsFormat: 'VStest'
+    testResultsFormat: 'VSTest'
     testResultsFiles: '*.trx'
     searchFolder: :'$(Build.ArtifactStagingDirectory)/test'
   displayName: 'Publish test results '
