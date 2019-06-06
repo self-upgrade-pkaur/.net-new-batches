@@ -43,14 +43,19 @@ steps:
     /p:CoverletOutput='$(Build.ArtifactStagingDirectory)/coverage/'
   workingDirectory: $(pathtosolution)
   displayName: 'dotnet test'
-
-# To see the test coverage in the Tests of every build
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'VSTest'
     testResultsFiles: '*.trx'
-    searchFolder: :'$(Build.ArtifactStagingDirectory)/test'
-  displayName: 'Publish test results '
+    searchFolder: '$(Build.ArtifactStagingDirectory)/test'
+  displayName: 'dotnet publish results'
+# To see the test coverage in the Tests of every build
+# - task: PublishTestResults@2
+#   inputs:
+#     testResultsFormat: 'VSTest'
+#     testResultsFiles: '*.trx'
+#     searchFolder: :'$(Build.ArtifactStagingDirectory)/test'
+#   displayName: 'Publish test results '
 
 # publish - works 
 #3 - task: DotNetCoreCLI@2
