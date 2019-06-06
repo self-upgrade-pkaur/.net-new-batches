@@ -24,7 +24,19 @@ pool : Default
 
 steps:
   #1 - script: echo First step!
-  #2 Build
+  # SONAR prepare
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'Sonar Cloud Service Connection'
+    organization: 'kaurrevature-github'
+    scannerMode: 'MSBuild'
+    projectKey: 'ContactApp'
+    projectName: 'ContactApp'
+    extraProperties: |
+      sonar.cs.opencover.reportsPaths="$(Build.ArtifactStagingDirectory)/coverage/*"
+      sonar.cs.vstest.reportsPaths="$(Build.ArtifactStagingDirectory)/test/*.trx"
+  displayName: 'Prepare Sonar Cloud '
+    # 2 Build
 - script: dotnet build --configuration $(buildConfiguration)
   workingDirectory: $(pathtosolution)
   displayName: 'dotnet build $(buildConfiguration)'
@@ -43,6 +55,11 @@ steps:
     /p:CoverletOutput='$(Build.ArtifactStagingDirectory)/coverage/'
   workingDirectory: $(pathtosolution)
   displayName: 'dotnet test'
+
+- task: SonarCloudAnalyze@1
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'VSTest'
