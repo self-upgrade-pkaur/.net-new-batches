@@ -54,7 +54,7 @@ steps:
 #   inputs:
 #     testResultsFormat: 'VSTest'
 #     testResultsFiles: '*.trx'
-#     searchFolder: :'$(Build.ArtifactStagingDirectory)/test'
+#     searchFolder: '$(Build.ArtifactStagingDirectory)/test'
 #   displayName: 'Publish test results '
 
 # publish - works 
