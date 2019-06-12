@@ -35,7 +35,10 @@ namespace Web
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
+            services.Configure<IISServerOptions>(options =>
+            {
+                options.AutomaticAuthentication = false;
+            });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             
             // Initialize the DbContext Connection string here
@@ -69,7 +72,7 @@ namespace Web
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "/App/{controller=Contact}/{action=Index}/{id?}");
+                    template: "/App/{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

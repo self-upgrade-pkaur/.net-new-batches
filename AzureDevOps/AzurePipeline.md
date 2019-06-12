@@ -1,3 +1,6 @@
 - create a new project on Azure devops pipeline
 - Tell where your code is : Github
 - Select Repo 
+- Add Azure pipelines in Github repos on git hub
+- Project Settings-> Service Connections-> User Service Principle to validate credentials of your Azure with Azure DevOps
+- 

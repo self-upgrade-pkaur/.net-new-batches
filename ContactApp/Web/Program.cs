@@ -11,9 +11,13 @@ using Microsoft.Extensions.Logging;
 namespace Web
 {
     public class Program
-    {
+    {/// <summary>
+    /// Setting up the web host
+    /// </summary>
+    /// <param name="args"></param>
         public static void Main(string[] args)
         {
+            ///to begin setting up a host
             CreateWebHostBuilder(args).Build().Run();
         }
 

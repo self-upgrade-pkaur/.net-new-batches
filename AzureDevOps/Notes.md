@@ -1,4 +1,4 @@
-DEVOPS WEEK: 
+DEVOPS WEEK:
 
 SONAR CLOUD:
 sonarcloud.io
@@ -77,15 +77,15 @@ GIT : It is a distributes VCS.
 - `git push -u origin master` or `git push --set-upstream origin master`
  
 *git demo 1* - team
-- dev 1 - 
+- developer 1 machine- 
     - `git checkout origin master`
     - `git commit -m 'new commit message`
     - `git push origin master`
-- dev 2
+- developer 2 machine-
     - `git checkout -b dev2feature1` 
     - `git commit - m 'added new feature1'`
     - `git push origin dev2feature1`
-- dev 1 
+- developer 1 machine-
     - `git pull `
     - `git merge dev2feature1`
 
