@@ -49,6 +49,9 @@ Week 04 Web Services
         - integrate google maps for location
         - paypal integration for payment
         - user login with fb
-    - when we create a service it is self contained autonomous unit (have fully control over it)
-    - Service should have a standard interface that tells (who i am, what i do, input, output), yellow sign above the bin that broadcasting to encourage customer to dispose waste (this is called as service discovery)
-    - services define contract as mode of communication (language for staff), here it should be protocol.
+    Eg: Coffee shop as SOA - Service (Employee, Furniture as a service, bill) as a system designer we need not to do what this needs to do, only the service provider witll know the logic behind it. So services should be automated and abstracted as well.
+    - AUTONOMOUS: when we create a service it is self contained autonomous unit (have fully control over it)
+    - INTERFACE: Service should have a standard interface that tells (who i am, what i do, input, output) like coffee pack has a label, yellow sign above the bin that broadcasting to encourage customer to dispose waste (this is called as service discovery- communicative metadata which can be used to effectively effectively discover and interpreted)
+    - SERVICE CONTRACT: services define contract as mode of communication (language for staff), here it should be protocol. Services are created with one or more service descriptions.
+    - DYNAMIC PROVISIONING : Network of the service is flexible to incorporate more services, like cleaning, new staff agency- by calling recruitment etc. So service flexible enough to provision or de-provision the other services.
+    - SERVICE RESUABLITY: I can expand by opening a restaurant, bar etc and then I can re-use existing services to serve my purpose.They can endlessly used, re-used, composed and recomposed
