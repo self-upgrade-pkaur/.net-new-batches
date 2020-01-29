@@ -7,25 +7,26 @@ show bugs, code smells
 technical debt
 
 Azure DevOps
--> in github, install Azure Pipelines App for ALL REPOSITORIES
--> // Visual Designer for release
--> recommended is yaml for build
--> Jobs: Containerized way of defining an environment where an application
+- in github, install Azure Pipelines App for ALL REPOSITORIES
+- Visual Designer for release
+- recommended is yaml for build
+- Jobs: Containerized way of defining an environment where an application
     - https://docs.microsoft.com/en-us/azure/devops/pipelines/process/phases?view=azure-devops&tabs=yaml
     - You can organize your pipeline into jobs. Every pipeline has at least one job. A job is a series of steps that run sequentially as a unit. In other words, a job is the smallest unit of work that can be scheduled to run.
 root
     - variable(env variable)
-    -job
-        -pool
-            -vmImages 'ubuntu-1804' or
+    - job
+        - pool
+            - vmImages 'ubuntu-1804' or
                         'vshosted2017'
-        -condition : if()
-        -steps
-                -scripts: dotnet-test //need to install Coverlet.MsBuild nuget package -> ////test projects
-                //MSTest could give some error
-                -task
-    -trigger
-        -branch
+        - condition : if()
+        - steps
+                - scripts: dotnet-test //need to install Coverlet.MsBuild nuget package 
+                    - test projects
+                        - MSTest could give some error
+                - task
+    - trigger
+        - branch
 
 
 Preparation links :
@@ -56,11 +57,11 @@ GIT : It is a distributes VCS.
 - `git init` -> to initialize the git locally -> this will add a local .git folder
 - `cd projectfolder`
 - `git status` -> to see tracked or tracked files
-- `git add [file1] [file2]`  -> add the respective file to stage (means ready to commit) or     use `git add -A` for adding all the files
+- `git add [file1] [file2]`  -> add the respective file to stage (means ready to commit) or use `git add -A` for adding all the files
 - `git commit -m 'message'`
 -  `git log`-> to see the commits 
-- create a repo on git as repo1
-- `git remote add origin 'url for repo1'` -> get url from the repo to connect your local        git system to the git server
+-  create a repo on git as repo1
+- `git remote add origin 'url for repo1'` -> get url from the repo to connect your local git system to the git server
 - `git remote -v` -> to verify if the local git is connected to the git server
 - `git push`or `git push -u origin master`-> to make changes to server or master branch
 - `git fetch -u origin master` -> to get changes done from the server
