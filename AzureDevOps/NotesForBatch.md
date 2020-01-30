@@ -16,7 +16,7 @@
                 - sprint review : look at the process (user story assignation, estimation)
                 - sprint retrospection : a demo to stakeholder to check the product match the requirement
             - Kanban : watching tape recordings to strategise the game
-            - CMMI : NCAA (football associations)
+            - CMMI: NCAA (football associations)
 
 ## Deployment of Application:
 ### 1. [Host on Windows with IIS](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/iis/?view=aspnetcore-2.2#iis-configuration)

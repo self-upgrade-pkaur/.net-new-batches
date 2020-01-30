@@ -52,3 +52,14 @@ Week 04 Web Services
     - when we create a service it is self contained autonomous unit (have fully control over it)
     - Service should have a standard interface that tells (who i am, what i do, input, output), yellow sign above the bin that broadcasting to encourage customer to dispose waste (this is called as service discovery)
     - services define contract as mode of communication (language for staff), here it should be protocol.
+
+
+## AAD B2C:
+
+- tenant - your org that consists of dir of users
+- 
+
+## Demo
+- create a tenant on Azure B2C
+- Link the tenant to Azure Subscription.
+- Register your App.
