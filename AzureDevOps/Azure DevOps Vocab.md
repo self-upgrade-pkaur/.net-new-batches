@@ -1,0 +1,9 @@
+- [VSM](https://docs.microsoft.com/en-us/learn/modules/assess-your-development-process/4-assess-process-efficiency) - Value Streaming Maps
+    - process that delivers maximum value to the customer with minimum waste
+- finding the painpoints based on activity % = Lead time/ process time.
+- [Agile](https://agilemanifesto.org/)
+- **Continuous integration (CI)** is the process of automating the build and testing of code every time a team member commits changes to version control.
+    - CI encourages developers to share their code and unit tests by merging their changes into a shared version control repository after every small task completion. 
+    - Committing code triggers an automated build system to grab the latest code from the shared repository and to build, test, and validate the full master branch (also known as the trunk or main)
+    - CI Example ![CI image]()
+    - [Azure pipelines](https://docs.microsoft.com/en-us/learn/modules/create-a-build-pipeline/2-what-is-azure-pipelines) is a cloud service that helps us to create the pipeline (A pipeline defines the continuous integration process for the app)
