@@ -1,5 +1,5 @@
 # Curriculum
-Week 04 Web Services
+- Week 04 Web Services
     - Service Oriented Architecture
     (Patterns, Principles, Endpoint, Address, Binding, Contract)
     - SOAP
@@ -29,7 +29,7 @@ Week 04 Web Services
     (Listeners, Propagation)
 
 ## SOA:
--*Complex Engineered System*
+- *Complex Engineered System*
     - Traditional (1970 to late 1990s): Homogeneous, bounded and static
     - where as business demands : hetrogeneous, unbounded, dynamic, undefined and composed of autonomous elements instead.  
     - Mordern Complex Engineered System needs to be designed in such a way that:
@@ -65,7 +65,6 @@ Week 04 Web Services
 ## AAD B2C:
 
 - tenant - your org that consists of dir of users
-- 
 
 ## Demo
 - create a tenant on Azure B2C
