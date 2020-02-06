@@ -35,6 +35,7 @@
 - add docker ignore to avoid bin and obj file going to the docker on build
 - inspect container - to see the logs
 - upload the images to docker hub 
+- trying merge conflict with git
 
 
 
