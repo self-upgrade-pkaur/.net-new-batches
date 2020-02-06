@@ -5,5 +5,15 @@
 - **Continuous integration (CI)** is the process of automating the build and testing of code every time a team member commits changes to version control.
     - CI encourages developers to share their code and unit tests by merging their changes into a shared version control repository after every small task completion. 
     - Committing code triggers an automated build system to grab the latest code from the shared repository and to build, test, and validate the full master branch (also known as the trunk or main)
-    - CI Example ![CI image]()
-    - [Azure pipelines](https://docs.microsoft.com/en-us/learn/modules/create-a-build-pipeline/2-what-is-azure-pipelines) is a cloud service that helps us to create the pipeline (A pipeline defines the continuous integration process for the app)
+    - CI Example ![CI image](https://github.com/self-upgrade-pkaur/.net-new-batches/blob/master/AzureDevOps/images/CI.png)
+    - [Azure pipelines](https://docs.microsoft.com/en-us/learn/modules/create-a-build-pipeline/2-what-is-azure-pipelines) is a cloud service that helps us to create the pipeline.
+    - A **pipeline** defines the continuous integration process for the app.
+        - Pipelines are made up of **tasks** (a script that defines how your build, test, and deployment  steps are run)
+        - **build agent** builds or deploys the code. When your build or deployment runs, the system begins one or more, *jobs* (background processes).
+          - An **agent** is installable software that runs one build or deployment job at a time.
+          - Types of *agent* in Azure pipelines:
+            - **Microsoft-hosted** agent - maintenance and upgrades are taken care by Azure. Each time we run a pipeline, we'll get a fresh virtual machine.The virtual machine is discarded after one use. Eg: Ubuntu *16.04*, *windows-2019* (Windows Server 2019 with Visual Studio 2019) etc.
+            - **self-hosted** agent - An agent that you set up and manage on your own to run build and deployment jobs. Self-hosted agents give you more control and let you install any software you need for your builds and deployments.
+            - Agent pools - An agent pool defines the sharing boundary for all agents in that pool. agent pools are scoped to the Azure DevOps organization so you can share an agent pool across projects.
+            - Agent queues
+        - **build artifact** - The final product of the pipeline. Eg: A Java or .NET application packaged into a *.jar* or *.zip* file.
