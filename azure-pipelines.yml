@@ -1,0 +1,141 @@
+# ASP.NET Core
+# Build and test ASP.NET Core projects targeting .NET Core.
+# Add steps that run tests, create a NuGet package, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+# branch name
+trigger:
+- master
+
+variables:
+  buildConfiguration: 'Release'
+  pathtosolution: ContactApp/
+  pathtoproject: 'ContactApp/Web'
+  pathtoTest: 'ContactApp/Test'
+
+#using Microsoft Hosted agents
+# pool:
+#   vmImage: 'windows-2019'
+
+#pointing to default build server from Nick's VM
+pool : Default
+
+steps:
+  #1 - hello world message
+- script: echo First step!
+  #3.2 SONAR prepare
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'Sonar Cloud Service Connection'
+    organization: 'kaurrevature-github'
+    scannerMode: 'MSBuild'
+    projectKey: 'ContactApp'
+    projectName: 'ContactApp'
+    extraProperties: |
+      sonar.cs.opencover.reportsPaths="$(Build.ArtifactStagingDirectory)/coverage/*"
+      sonar.cs.vstest.reportsPaths="$(Build.ArtifactStagingDirectory)/test/*.trx"
+  displayName: 'Prepare Sonar Cloud '
+    #2 -dotnet build
+- script: dotnet build --configuration $(buildConfiguration)
+  workingDirectory: $(pathtosolution)
+  displayName: 'dotnet build $(buildConfiguration)'
+
+#3.0 test using tasks - .net core 
+# - script: dotnet test
+#     --configuration $(buildConfiguration)
+#     --logger trx
+#     --no-build
+#   workingDirectory: $(pathtosolution)
+
+#3.1 test with code MS build coverage
+- script: dotnet test
+    --configuration $(buildConfiguration)
+    --logger trx
+    --no-build
+    --results-directory $(Build.ArtifactStagingDirectory)/test/
+    /p:CollectCoverage=true
+    /p:CoverletOutputFormat=opencover
+    /p:CoverletOutput='$(Build.ArtifactStagingDirectory)/coverage/'
+  workingDirectory: $(pathtosolution)
+  displayName: 'dotnet test'
+
+#3.3 Run Code Analysis
+- task: SonarCloudAnalyze@1
+  
+#3.4.1 Publish Quality Gate result
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
+
+#3.4.0 To see the test coverage in the Tests of every build
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'VSTest'
+    testResultsFiles: '*.trx'
+    searchFolder: '$(Build.ArtifactStagingDirectory)/test'
+  displayName: 'Publish test results '
+
+#4 Publish artifact - package and create a zip and put it in a drop folder
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'publish'
+    projects: '$(pathtoproject)/*.csproj'
+    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+    publishWebProjects: false
+  displayName: 'dotnet publish'
+  
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
+# - script: dotnet   **/*Test*.csproj
+#     --configuration $(buildConfiguration)
+#     --logger trx
+#     --no-build
+#   workingDirectory: $(pathtosolution)
+#   displayName: Publish
+
+
+# this is used for deployment to dev server - the only server
+# - task: AzureRmWebAppDeployment@4
+#   inputs:
+#     ConnectionType: 'AzureRM'
+#     azureSubscription: 'KaurrevatureCon'
+#     appType: 'webApp'
+#     WebAppName: 'contactapplearn'
+#     packageForLinux: '$(System.DefaultWorkingDirectory)/$(pathtoproject)/**/*.zip'
+
+# demo for various stages
+
+# stages:
+# - stage: Build
+#   jobs:
+#   - job: BuildJob
+#     pool:
+#       vmImage: 'ubuntu-latest'
+#     steps:
+#       - script: echo Building!
+
+# - stage: Test
+#   jobs:
+#   - job: TestOnWindows
+#     pool:
+#       vmImage: 'ubuntu-latest'
+#     steps:
+#     - script: echo Testing on Windows!
+#       displayName: Test On Windows Log
+#   - job: TestOnLinux
+#     steps:
+#     - script: echo Testing on Linux!
+#       displayName: Test On Linux Log
+  
+
+# - stage: Deploy
+#   jobs:
+#   - job: Deploy
+#     pool:
+#       vmImage: 'ubuntu-latest'
+#     steps:
+#     - script: echo Deploying the code!
+#       displayName: Deploy Log
